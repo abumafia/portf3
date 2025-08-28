@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Postlarni yuklash
     async function loadPosts() {
         try {
-            const response = await fetch('/api/posts');
+            const response = await fetch('https://portf3.onrender.com/api/posts');
             const posts = await response.json();
             
             postsContainer.innerHTML = '';
@@ -38,7 +38,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Galereyani yuklash
     async function loadGallery() {
         try {
-            const response = await fetch('/api/gallery');
+            const response = await fetch('https://portf3.onrender.com/api/gallery');
             const gallery = await response.json();
             
             galleryContainer.innerHTML = '';
@@ -146,7 +146,7 @@ document.addEventListener('DOMContentLoaded', function() {
         
         postModal.classList.remove('hidden');
         
-        fetch(`/api/posts/${postId}`)
+        fetch(`https://portf3.onrender.com/api/posts/${postId}`)
             .then(response => response.json())
             .then(post => {
                 document.getElementById('modal-title').textContent = post.title;
@@ -314,7 +314,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Postga like bosish
     async function likePost(postId) {
         try {
-            const response = await fetch(`/api/posts/${postId}/like`, {
+            const response = await fetch(`https://portf3.onrender.com/api/posts/${postId}/like`, {
                 method: 'POST'
             });
             
@@ -341,7 +341,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Kommentga like bosish
     async function likeComment(postId, commentId) {
         try {
-            const response = await fetch(`/api/posts/${postId}/comment/${commentId}/like`, {
+            const response = await fetch(`https://portf3.onrender.com/api/posts/${postId}/comment/${commentId}/like`, {
                 method: 'POST'
             });
             
@@ -361,7 +361,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Javobga like bosish
     async function likeReply(postId, commentId, replyId) {
         try {
-            const response = await fetch(`/api/posts/${postId}/comment/${commentId}/reply/${replyId}/like`, {
+            const response = await fetch(`https://portf3.onrender.com/api/posts/${postId}/comment/${commentId}/reply/${replyId}/like`, {
                 method: 'POST'
             });
             
@@ -381,7 +381,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Javob qoldirish
     async function submitReply(postId, commentId, author, content) {
         try {
-            const response = await fetch(`/api/posts/${postId}/comment/${commentId}/reply`, {
+            const response = await fetch(`https://portf3.onrender.com/api/posts/${postId}/comment/${commentId}/reply`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -404,7 +404,7 @@ document.addEventListener('DOMContentLoaded', function() {
         // Hozircha faqat demo
         try {
             if (navigator.share) {
-                const response = await fetch(`/api/posts/${postId}`);
+                const response = await fetch(`https://portf3.onrender.com/api/posts/${postId}`);
                 const post = await response.json();
                 
                 await navigator.share({
@@ -440,7 +440,7 @@ document.addEventListener('DOMContentLoaded', function() {
         submitBtn.disabled = true;
         
         try {
-            const response = await fetch(`/api/posts/${postId}/comment`, {
+            const response = await fetch(`https://portf3.onrender.com/api/posts/${postId}/comment`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -484,7 +484,7 @@ document.addEventListener('DOMContentLoaded', function() {
         submitBtn.disabled = true;
         
         try {
-            const response = await fetch('/api/messages', {
+            const response = await fetch('https://portf3.onrender.com/api/messages', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
