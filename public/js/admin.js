@@ -106,7 +106,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Postlarni yuklash
     async function loadPosts() {
         try {
-            const response = await fetch('/api/posts');
+            const response = await fetch('https://portf3.onrender.com/api/posts');
             const posts = await response.json();
             
             postsContainer.innerHTML = '';
@@ -129,7 +129,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Xabarlarni yuklash
     async function loadMessages() {
         try {
-            const response = await fetch('/api/messages');
+            const response = await fetch('https://portf3.onrender.com/api/messages');
             const messages = await response.json();
             
             messagesContainer.innerHTML = '';
@@ -152,7 +152,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Galereyani yuklash
     async function loadGallery() {
         try {
-            const response = await fetch('/api/gallery');
+            const response = await fetch('https://portf3.onrender.com/api/gallery');
             const gallery = await response.json();
             
             galleryAdminContainer.innerHTML = '';
@@ -303,7 +303,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         
         const postId = document.getElementById('post-id').value;
-        const url = postId ? `/api/posts/${postId}` : '/api/posts';
+        const url = postId ? `https://portf3.onrender.com/api/posts/${postId}` : 'https://portf3.onrender.com/api/posts';
         const method = postId ? 'PUT' : 'POST';
         
         try {
@@ -337,7 +337,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         
         const galleryId = document.getElementById('gallery-id').value;
-        const url = galleryId ? `/api/gallery/${galleryId}` : '/api/gallery';
+        const url = galleryId ? `https://portf3.onrender.com/api/gallery/${galleryId}` : 'https://portf3.onrender.com/api/gallery';
         const method = galleryId ? 'PUT' : 'POST';
         
         try {
@@ -384,11 +384,11 @@ document.addEventListener('DOMContentLoaded', function() {
             try {
                 let url = '';
                 if (currentDeleteType === 'post') {
-                    url = `/api/posts/${currentDeleteId}`;
+                    url = `https://portf3.onrender.com/api/posts/${currentDeleteId}`;
                 } else if (currentDeleteType === 'message') {
-                    url = `/api/messages/${currentDeleteId}`;
+                    url = `https://portf3.onrender.com/api/messages/${currentDeleteId}`;
                 } else if (currentDeleteType === 'gallery') {
-                    url = `/api/gallery/${currentDeleteId}`;
+                    url = `https://portf3.onrender.com/api/gallery/${currentDeleteId}`;
                 }
                 
                 const response = await fetch(url, {
@@ -447,7 +447,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Postni tahrirlash
     async function editPost(postId) {
         try {
-            const response = await fetch(`/api/posts/${postId}`);
+            const response = await fetch(`https://portf3.onrender.com/api/posts/${postId}`);
             const post = await response.json();
             
             document.getElementById('modal-title').textContent = 'Postni Tahrirlash';
